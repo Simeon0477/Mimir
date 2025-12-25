@@ -3,12 +3,14 @@ import errors
 import statistics
 
 def mean(data):
+    #Gestion des erreurs possibles
     if type(data).__name__ != "list":
         raise errors.NoListError()
     
     if len(data) == 0:
         raise errors.VoidList()  
     
+    #Calcul de la moyenne
     mean = 0.0
     for i in range(len(data)):
         mean += data[i]
@@ -16,12 +18,14 @@ def mean(data):
     return mean / len(data)
 
 def variance(data, sample=True):
+    #Gestion des erreurs possibles
     if type(data).__name__ != "list":
         raise errors.NoListError()
     
     if len(data) == 0:
         raise errors.VoidList()  
     
+    #Calcul de la variance
     variance = 0.0
     mean = mean(data)
     if sample:
@@ -36,18 +40,21 @@ def variance(data, sample=True):
         return variance / len(data)
     
 def std_dev(data, sample=True):
+    #Gestion des erreurs possibles
     if type(data).__name__ != "list":
         raise errors.NoListError()
     
     if len(data) == 0:
         raise errors.VoidList()  
     
+    #Calcul por l'écart-type
     if sample:
         return math.sqrt(variance(data))
     else:
         return math.sqrt(variance(data, sample))
     
 def covariance(x, y):
+    #Gestion des erreurs possibles
     if type(x).__name__ != "list" & type(y).__name__ != "list":
         raise errors.NoListError()
     
@@ -57,6 +64,7 @@ def covariance(x, y):
     if len(x) != len(y):
         raise errors.NoEqualLengthError()
 
+    #Calcul de la covariance
     covariance = 0.0
     mean_x = mean(x)
     mean_y = mean(y)
@@ -64,9 +72,10 @@ def covariance(x, y):
     for i in range(length):
         covariance += (x[i] - mean_x) * (y[i] - mean_y)
     
-    return covariance / len
+    return covariance / length
 
 def correlation(x, y):
+    #Gestion des erreurs possibles
     if type(x).__name__ != "list" & type(y).__name__ != "list":
         raise errors.NoListError()
     
@@ -76,9 +85,11 @@ def correlation(x, y):
     if len(x) != len(y):
         raise errors.NoEqualLengthError()
     
+    #Calcul du coefficient de correlation
     return covariance(x, y) / (std_dev(x, False) * std_dev(y, False))
 
 def correlation_matrix(dataset):
+    #Détermination de la matrice de correlation
     matrix = {}
     for i in dataset.keys():
         for j in dataset.keys():
