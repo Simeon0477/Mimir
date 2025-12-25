@@ -67,6 +67,15 @@ def covariance(x, y):
     return covariance / len
 
 def correlation(x, y):
+    if type(x).__name__ != "list" & type(y).__name__ != "list":
+        raise errors.NoListError()
+    
+    if len(x) == 0 & len(y) == 0:
+        raise errors.VoidList() 
+    
+    if len(x) != len(y):
+        raise errors.NoEqualLengthError()
+    
     return covariance(x, y) / (std_dev(x, False) * std_dev(y, False))
 
 def correlation_matrix(dataset):
