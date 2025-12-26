@@ -7,7 +7,7 @@ def load_csv (file_path, separator = ',', encoding = 'utf-8'):
                 continue
             sep = line.split(separator)
             file_list.append(sep)
-            return file_list
+        return file_list
 
 def load_json(file_path):
     with open(file_path, 'r', encoding = 'utf-8') as _json:
