@@ -92,7 +92,7 @@ def correlation_matrix(dataset):
     matrix = {}
     for i in dataset.keys():
         for j in dataset.keys():
-            key = f"Corr_{i}_&_{j}"
+            key = f"{i}_&_{j}"
             matrix[key] = correlation(dataset[i], dataset[j])
     
     return matrix
