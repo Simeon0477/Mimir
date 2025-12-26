@@ -47,3 +47,4 @@ def correlation_matrix(data):
             list1 = [row[v1] for row in data]
             list2 = [row[v2] for row in data]
             matrix[v1][v2] = correlation(list1, list2)
+    return matrix
