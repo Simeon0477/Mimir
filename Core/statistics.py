@@ -11,7 +11,7 @@ def variance(data_list, samples = True):
     _mean = mean(data_list)
     total = math.fsum((li - _mean)**2 for li in data_list)
     if samples:
-        return total / len(data_list) - 1
+        return total / (len(data_list) - 1)
     else :
         return total / len(data_list)
 
