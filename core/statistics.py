@@ -1,5 +1,5 @@
 import math
-import errors
+import core.errors as errors
 
 def mean(data):
     #Gestion des erreurs possibles
@@ -26,15 +26,15 @@ def variance(data, sample=True):
     
     #Calcul de la variance
     variance = 0.0
-    mean = mean(data)
+    moyenne = mean(data)
     if sample:
         for i in range(len(data)):
-            variance += (data[i] - mean)**2
+            variance += (data[i] - moyenne)**2
             
         return variance / (len(data) - 1)
     else:
         for i in range(len(data)):
-            variance += (data[i] - mean)**2
+            variance += (data[i] - moyenne)**2
             
         return variance / len(data)
     
@@ -54,7 +54,7 @@ def std_dev(data, sample=True):
     
 def covariance(x, y):
     #Gestion des erreurs possibles
-    if type(x).__name__ != "list" & type(y).__name__ != "list":
+    if type(x).__name__ != "list" and type(y).__name__ != "list":
         raise errors.NoListError()
     
     if len(x) == 0 & len(y) == 0:
@@ -75,7 +75,7 @@ def covariance(x, y):
 
 def correlation(x, y):
     #Gestion des erreurs possibles
-    if type(x).__name__ != "list" & type(y).__name__ != "list":
+    if type(x).__name__ != "list" and type(y).__name__ != "list":
         raise errors.NoListError()
     
     if len(x) == 0 & len(y) == 0:
