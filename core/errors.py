@@ -7,6 +7,7 @@ class NoListError(Exception):
         self.message = "The parameter 'data' should be a 'list'"
         super().__init__(self.message)
 
+
 """
    Erreur rencontrée lorsque l'utilisateur donne en paramètre
    deux listes qui n'ont pas la même longueur

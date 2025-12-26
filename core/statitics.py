@@ -1,6 +1,5 @@
 import math
 import errors
-import statistics
 
 def mean(data):
     #Gestion des erreurs possibles
