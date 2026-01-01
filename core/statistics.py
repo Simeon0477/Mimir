@@ -1,13 +1,12 @@
 import math
-import core.errors as errors
 
 def mean(data):
     #Gestion des erreurs possibles
     if type(data).__name__ != "list":
-        raise errors.NoListError()
+        raise TypeError("The parameter 'data' should be a 'list'")
     
     if len(data) == 0:
-        raise errors.VoidList()  
+        raise ValueError("The list is void")  
     
     #Calcul de la moyenne
     mean = 0.0
@@ -19,10 +18,10 @@ def mean(data):
 def variance(data, sample=True):
     #Gestion des erreurs possibles
     if type(data).__name__ != "list":
-        raise errors.NoListError()
+        raise TypeError("The parameter 'data' should be a 'list'")
     
     if len(data) == 0:
-        raise errors.VoidList()  
+        raise ValueError("The list is void")  
     
     #Calcul de la variance
     variance = 0.0
@@ -41,10 +40,10 @@ def variance(data, sample=True):
 def std_dev(data, sample=True):
     #Gestion des erreurs possibles
     if type(data).__name__ != "list":
-        raise errors.NoListError()
+        raise TypeError("The parameter 'data' should be a 'list'")
     
     if len(data) == 0:
-        raise errors.VoidList()  
+        raise ValueError("The list is void")  
     
     #Calcul por l'écart-type
     if sample:
@@ -55,13 +54,13 @@ def std_dev(data, sample=True):
 def covariance(x, y):
     #Gestion des erreurs possibles
     if type(x).__name__ != "list" and type(y).__name__ != "list":
-        raise errors.NoListError()
+        raise TypeError("The parameter 'data' should be a 'list'")
     
     if len(x) == 0 & len(y) == 0:
-        raise errors.VoidList() 
+        raise ValueError("The list is void") 
     
     if len(x) != len(y):
-        raise errors.NoEqualLengthError()
+        raise ValueError("The parameters 'x' and 'y' have differents lengths")
 
     #Calcul de la covariance
     covariance = 0.0
@@ -76,13 +75,13 @@ def covariance(x, y):
 def correlation(x, y):
     #Gestion des erreurs possibles
     if type(x).__name__ != "list" and type(y).__name__ != "list":
-        raise errors.NoListError()
+        raise TypeError("The parameter 'data' should be a 'list'")
     
     if len(x) == 0 & len(y) == 0:
-        raise errors.VoidList() 
+        raise ValueError("The list is void") 
     
     if len(x) != len(y):
-        raise errors.NoEqualLengthError()
+        raise ValueError("The parameters 'x' and 'y' have differents lengths")
     
     #Calcul du coefficient de correlation
     return covariance(x, y) / (std_dev(x, False) * std_dev(y, False))

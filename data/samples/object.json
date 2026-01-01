@@ -1,0 +1,26 @@
+[
+  {
+    "name": "housing",
+    "file": "housing.csv",
+    "rows": 506,
+    "features": 13,
+    "target": "MEDV",
+    "source": "UCI"
+  },
+  {
+    "name": "users",
+    "file": "users.csv",
+    "rows": 1200,
+    "features": 8,
+    "target": null,
+    "source": "internal"
+  },
+  {
+    "name": "sales",
+    "file": "sales.csv",
+    "rows": 350,
+    "features": 5,
+    "target": "revenue",
+    "source": "crm"
+  }
+]
